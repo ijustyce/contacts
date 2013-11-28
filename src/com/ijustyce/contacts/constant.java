@@ -19,9 +19,12 @@ public interface constant {
 	public static String birthday = "birthday";
 	public static String error_blank = "not allow null ,please check!";
 	public static String error_null = "no info now ,please add!";
+	public static String error_wait = "this function is in developing ,please wait!";
 	public static String error = "error";
 	public static String menu1 = "delete";
 	public static String menu2 = "edit";
 	public static String menu3 = "exit";
 	public static String updateInfo = "update friend info";
+	
+	public static int EditTextSize = 10;
 }

@@ -2,7 +2,6 @@ package com.ijustyce.contacts;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.ijustyce.sqlite.sqliteApi;
-import com.ijustyce.ui.IFont;
+import com.txh.javaUi.Button;
+import com.txh.javaUi.EditText;
+import com.txh.javaUi.Label;
 
 public class add extends JFrame{
 	
@@ -23,22 +24,17 @@ public class add extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Font font ;
 	private String name,phone,email,birthday;
 	private boolean edit = false;
 	private JTextField nameText,phoneText,emailText,birthdayText;
 	private JButton button;
-	private IFont iFont;
 	private String id;
 	
 	/**
 	 * Constructor 
 	 */
 	public add(){
-		
-		iFont = new IFont();
-		font = iFont.getDefaultFont();
-		
+
 		GridLayout layout = new GridLayout(5,1);
 		setLayout(layout);
 		if(!edit){
@@ -56,16 +52,13 @@ public class add extends JFrame{
 	public void showAdd(){
 		
 		if(!edit){
-			nameText = new JTextField(20);
+			nameText = EditText.createEditText(constant.EditTextSize);
 		}
 		else{
-			nameText = new JTextField(name,20);
+			nameText = EditText.createEditText(name,constant.EditTextSize);
 		}
 		
-		nameText.setFont(font);
-		
-		JLabel nameLabel = new JLabel(constant.name);
-		nameLabel.setFont(font);
+		JLabel nameLabel = Label.createLabel(constant.name);
 		
 		JPanel namePanel = new JPanel();
 		namePanel.setLayout(new FlowLayout());
@@ -74,16 +67,13 @@ public class add extends JFrame{
 		add(namePanel,BorderLayout.CENTER);
 		
 		if(!edit){
-			phoneText = new JTextField(20);
+			phoneText = EditText.createEditText(constant.EditTextSize);
 		}
 		else{
-			phoneText = new JTextField(phone,20);
+			phoneText = EditText.createEditText(phone,constant.EditTextSize);
 		}
 		
-		phoneText.setFont(font);
-		
-		JLabel phoneLabel = new JLabel(constant.phone);
-		phoneLabel.setFont(font);
+		JLabel phoneLabel = Label.createLabel(constant.phone);
 		
 		JPanel phonePanel = new JPanel();
 		phonePanel.setLayout(new FlowLayout());
@@ -92,16 +82,13 @@ public class add extends JFrame{
 		add(phonePanel,BorderLayout.CENTER);
 		
 		if(!edit){
-			emailText = new JTextField(20);
+			emailText = EditText.createEditText(constant.EditTextSize);
 		}
 		else{
-			emailText = new JTextField(email,20);
+			emailText = EditText.createEditText(email,constant.EditTextSize);
 		}
 		
-		emailText.setFont(font);
-		
-		JLabel emailLabel = new JLabel(constant.email);
-		emailLabel.setFont(font);
+		JLabel emailLabel = Label.createLabel(constant.email);
 		
 		JPanel emailPanel = new JPanel();
 		emailPanel.setLayout(new FlowLayout());
@@ -110,16 +97,13 @@ public class add extends JFrame{
 		add(emailPanel,BorderLayout.CENTER);
 		
 		if(!edit){
-			birthdayText = new JTextField(20);
+			birthdayText = EditText.createEditText(constant.EditTextSize);
 		}
 		else{
-			birthdayText = new JTextField(birthday,20);
+			birthdayText = EditText.createEditText(birthday,constant.EditTextSize);
 		}
 		
-		birthdayText.setFont(font);
-		
-		JLabel birthdayLabel = new JLabel(constant.birthday);
-		birthdayLabel.setFont(font);
+		JLabel birthdayLabel = Label.createLabel(constant.birthday);
 		
 		JPanel birthdayPanel = new JPanel();
 		birthdayPanel.setLayout(new FlowLayout());
@@ -128,12 +112,12 @@ public class add extends JFrame{
 		add(birthdayPanel,BorderLayout.CENTER);
 		
 		if(!edit){
-			button = new JButton(constant.addFriend);
+			button = Button.createButton(constant.addFriend);
 		}
 		else{
-			button = new JButton(constant.updateInfo);
+			button = Button.createButton(constant.updateInfo);
 		}
-		button.setFont(font);
+
 		button.addActionListener(new ActionListener(){
 
 			@Override

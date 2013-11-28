@@ -16,6 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import com.ijustyce.sqlite.sqliteApi;
+import com.txh.javaUi.List;
+import com.txh.javaUi.TextArea;
 
 public class view extends JFrame{
 	
@@ -25,7 +27,7 @@ public class view extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JList<String> list;
 	private DefaultListModel<String> listModel;
-	private JTextArea textArea = new JTextArea(8,16);
+	private JTextArea textArea;
 	private sqliteApi sqlite;
 	private JPopupMenu popup = new JPopupMenu();
 	private boolean noInfo = false;
@@ -37,6 +39,7 @@ public class view extends JFrame{
 	 */
 	public view(){
 		
+		textArea = TextArea.createTextArea(8, 16);
 		textArea.setEditable(false);
 		sqlite = new sqliteApi();
 		listModel = new DefaultListModel<String>();
@@ -56,7 +59,7 @@ public class view extends JFrame{
 			listModel.addElement(value[i][1]);
 		}
 		
-		list = new JList<String>(listModel);
+		list = List.createList(listModel);
 		if(value.length<20){
 			list.setVisibleRowCount(value.length);
 		}

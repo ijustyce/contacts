@@ -8,6 +8,7 @@ import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import com.ijustyce.sqlite.sqliteApi;
 
@@ -80,8 +81,12 @@ public class MainActivity extends JFrame implements ActionListener{
 		
 		else if(s.equals(constant.setting)){
 			
-			add addFriend = new add();
-			addFriend.showAdd();
+			JOptionPane.showMessageDialog(null, constant.error_wait, constant.error, 
+					JOptionPane.ERROR_MESSAGE);
+			return ;
+			
+//			add addFriend = new add();
+//			addFriend.showAdd();
 		}
 		
 		else if(s.equals(constant.viewFriend)){
